@@ -3,17 +3,11 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# ===============================
-# 1. Page Configuration
-# ===============================
 st.set_page_config(page_title="California Housing Data (1990)", layout="wide")
 
 st.title("🏠 California Housing Data (1990)")
 st.markdown("### Minimal Median House Value")
 
-# ===============================
-# 2. Load Dataset
-# ===============================
 @st.cache_data
 def load_data():
     df = pd.read_csv("housing.csv")
@@ -21,9 +15,6 @@ def load_data():
 
 df = load_data()
 
-# ===============================
-# 3. Price Slider
-# ===============================
 min_price = int(df["median_house_value"].min())
 max_price = int(df["median_house_value"].max())
 
@@ -31,16 +22,13 @@ price_filter = st.slider(
     "Select Minimal Median House Value",
     min_price,
     max_price,
-    200000  # 默认值保持与作业截图一致
+    200000  
 )
 
 filtered_df = df[df["median_house_value"] >= price_filter]
 
 st.markdown("### See more filters in the sidebar:")
 
-# ===============================
-# 4. Sidebar Filters
-# ===============================
 st.sidebar.header("🔍 Filters")
 
 # Multiselect for location type
@@ -68,23 +56,17 @@ elif income_level == "Medium":
 else:
     filtered_df = filtered_df[filtered_df["median_income"] >= 4.5]
 
-# ===============================
-# 5. Map Visualization
-# ===============================
 st.subheader("📍 House Locations on Map")
 st.map(filtered_df[["latitude", "longitude"]])
 
-# ===============================
-# 6. Histogram Visualization
-# ===============================
 st.subheader("🏡 Histogram of Median House Value")
 
 fig, ax = plt.subplots(figsize=(8, 4))
 ax.hist(
     filtered_df["median_house_value"],
     bins=30,
-    color="#2E86C1",      # 蓝色填充
-    edgecolor="white",    # 白色边框
+    color="#2E86C1",      
+    edgecolor="white",   
     linewidth=0.8,
     alpha=0.9
 )
@@ -95,9 +77,7 @@ ax.grid(alpha=0.3)
 
 st.pyplot(fig)
 
-# ===============================
-# 7. Summary Section
-# ===============================
+
 st.markdown("---")
 st.markdown("✅ **Filters Applied:**")
 st.write(f"- Minimum Median House Value: ${price_filter}")
@@ -105,4 +85,5 @@ st.write(f"- Location Type: {', '.join(selected_locations)}")
 st.write(f"- Income Level: {income_level}")
 
 st.markdown("Use the sidebar to explore California housing data interactively!")
+
 
