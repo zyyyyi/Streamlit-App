@@ -34,6 +34,6 @@ Users can filter data by **house value**, **location type**, and **income level*
 
 ## How to Run the App
 
-### Clone the repository
-https://app-app-ejc6jkjvvt8fgey4lzrir4.streamlit.app/
+open <https://app-app-ejc6jkjvvt8fgey4lzrir4.streamlit.app/>
+
 
