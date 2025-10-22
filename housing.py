@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-st.set_page_config(page_title="California Housing Data (1990)", layout="wide")
+st.set_page_config(page_title="California Housing Data (1990) by Yunyi Zhou", layout="wide")
 
 st.title("California Housing Data (1990)")
 st.markdown("### Minimal Median House Value")
@@ -72,6 +72,7 @@ plt.ylabel("Count")
 plt.grid(True)
 
 st.pyplot(plt.gcf())
+
 
 
 
