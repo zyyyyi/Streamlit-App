@@ -1,13 +1,13 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 st.set_page_config(page_title="California Housing Data (1990)", layout="wide")
 
 st.title("California Housing Data (1990)")
 st.markdown("### Minimal Median House Value")
 
-@st.cache_data
 def load_data():
     df = pd.read_csv("housing.csv")
     return df
@@ -21,13 +21,12 @@ price_filter = st.slider(
     "Select Minimal Median House Value",
     min_price,
     max_price,
-    200000  
+    200000
 )
 
 filtered_df = df[df["median_house_value"] >= price_filter]
 
 st.markdown("### See more filters in the sidebar:")
-
 st.sidebar.header("Filters")
 
 location_types = df["ocean_proximity"].unique()
@@ -39,7 +38,6 @@ selected_locations = st.sidebar.multiselect(
 
 filtered_df = filtered_df[filtered_df["ocean_proximity"].isin(selected_locations)]
 
-# Radio for income level
 income_level = st.sidebar.radio(
     "Choose income level",
     ("Low", "Medium", "High")
@@ -59,21 +57,23 @@ st.map(filtered_df[["latitude", "longitude"]])
 
 st.subheader("Histogram of Median House Value")
 
-fig, ax = plt.subplots(figsize=(8, 4))
-ax.hist(
+sns.set(style="darkgrid")  
+plt.figure(figsize=(10, 6))
+
+plt.hist(
     filtered_df["median_house_value"],
     bins=30,
-    color="#2E86C1",      
-    edgecolor="white",   
-    linewidth=0.8,
-    alpha=0.9
+    color="#1f77b4",   
+    edgecolor="none"
 )
-ax.set_title("Distribution of Median House Value", fontsize=14, weight="bold")
-ax.set_xlabel("Median House Value ($)", fontsize=12)
-ax.set_ylabel("Count", fontsize=12)
-ax.grid(alpha=0.3)
 
-st.pyplot(fig)
+plt.xlabel("Median House Value")
+plt.ylabel("Count")
+plt.grid(True)
+
+st.pyplot(plt.gcf())
+
+
 
 
 
