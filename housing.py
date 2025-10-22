@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="California Housing Data (1990)", layout="wide")
 
-st.title("🏠 California Housing Data (1990)")
+st.title("California Housing Data (1990)")
 st.markdown("### Minimal Median House Value")
 
 @st.cache_data
@@ -29,7 +29,7 @@ filtered_df = df[df["median_house_value"] >= price_filter]
 
 st.markdown("### See more filters in the sidebar:")
 
-st.sidebar.header("🔍 Filters")
+st.sidebar.header("Filters")
 
 # Multiselect for location type
 location_types = df["ocean_proximity"].unique()
@@ -56,10 +56,10 @@ elif income_level == "Medium":
 else:
     filtered_df = filtered_df[filtered_df["median_income"] >= 4.5]
 
-st.subheader("📍 House Locations on Map")
+st.subheader("House Locations on Map")
 st.map(filtered_df[["latitude", "longitude"]])
 
-st.subheader("🏡 Histogram of Median House Value")
+st.subheader("Histogram of Median House Value")
 
 fig, ax = plt.subplots(figsize=(8, 4))
 ax.hist(
@@ -76,6 +76,7 @@ ax.set_ylabel("Count", fontsize=12)
 ax.grid(alpha=0.3)
 
 st.pyplot(fig)
+
 
 
 
