@@ -5,7 +5,7 @@ import seaborn as sns
 
 st.set_page_config(page_title="California Housing Data (1990) by Yunyi Zhou", layout="wide")
 
-st.title("California Housing Data (1990)")
+st.title("California Housing Data (1990) by Yunyi Zhou")
 st.markdown("### Minimal Median House Value")
 
 def load_data():
@@ -72,6 +72,7 @@ plt.ylabel("Count")
 plt.grid(True)
 
 st.pyplot(plt.gcf())
+
 
 
 
