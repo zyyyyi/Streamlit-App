@@ -16,7 +16,7 @@ Users can filter data by **house value**, **location type**, and **income level*
 
 ---
 
-## 🧾 Dataset Information
+## Dataset Information
 
 **Dataset:** [California Housing Prices (1990)](https://www.kaggle.com/datasets/camnugent/california-housing-prices)
 
@@ -35,7 +35,5 @@ Users can filter data by **house value**, **location type**, and **income level*
 ## How to Run the App
 
 ### Clone the repository
-```bash
-git clone https://github.com/<zyyyyi>/california-housing-dashboard.git
+https://app-app-ejc6jkjvvt8fgey4lzrir4.streamlit.app/
 
-cd california-housing-dashboard
