@@ -78,12 +78,6 @@ ax.grid(alpha=0.3)
 st.pyplot(fig)
 
 
-st.markdown("---")
-st.markdown("✅ **Filters Applied:**")
-st.write(f"- Minimum Median House Value: ${price_filter}")
-st.write(f"- Location Type: {', '.join(selected_locations)}")
-st.write(f"- Income Level: {income_level}")
 
-st.markdown("Use the sidebar to explore California housing data interactively!")
 
 
