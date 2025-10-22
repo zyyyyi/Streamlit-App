@@ -1,4 +1,3 @@
-# app.py
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -31,7 +30,6 @@ st.markdown("### See more filters in the sidebar:")
 
 st.sidebar.header("Filters")
 
-# Multiselect for location type
 location_types = df["ocean_proximity"].unique()
 selected_locations = st.sidebar.multiselect(
     "Choose the location type",
@@ -76,6 +74,7 @@ ax.set_ylabel("Count", fontsize=12)
 ax.grid(alpha=0.3)
 
 st.pyplot(fig)
+
 
 
 
